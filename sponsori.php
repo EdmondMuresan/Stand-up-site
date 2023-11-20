@@ -14,8 +14,8 @@
             <li><a>Evenimente</a></li>
             <li><a>Artiști</a></li>
             <li><a>Bilete</a></li>
-            <li><a>Sponsori</a></li>
-    <li><a href="utilizatori.php">Login/Sign-up</a></li>
+            <li><a href="sponsori.php">Sponsori</a></li>
+            <li><a href="utilizatori.php">Login/Sign-up</a></li>
         </ul>
     </div>
     <h1>Inregistrarile din tabela Sponsori</h1>
@@ -43,8 +43,8 @@
     echo "<td>" . $row->CIF . "</td>";
     echo "<td>" . $row->email . "</td>";
     echo "<td>" . $row->idevenimente . "</td>";
-    echo "<td><a href='Modificare.php?id=" . $row->id . "'>Modificare</a></td>";
-    echo "<td><a href='Stergere.php?id=" .$row->id . "'>Stergere</a></td>";
+    echo "<td><a href='sposorimodificare.php?id=" . $row->id . "'>Modificare</a></td>";
+    echo "<td><a href='sponsoristergere.php?id=" .$row->id . "'>Stergere</a></td>";
     echo "</tr>";
     }
     echo "</table>";
@@ -61,6 +61,6 @@
     // se inchide
     $mysqli->close();
     ?>
-<a href="Inserare.php">Adaugarea unei noi inregistra
+<a href="sponsoriinserare.php">Adaugarea unei noi inregistrari
 </body>
 </html>
