@@ -1,5 +1,6 @@
 body{
     background-color: cadetblue;
+    color: white;
 }
 #Menubar{
     background-color: coral;
@@ -33,4 +34,21 @@ a:hover{
 #horizontalList li {
     display: inline-grid;
     margin-right: 5%;
+}
+#Echipa{
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+h3{
+    text-align: center;
+}
+#echipaimagine{
+    width: 20%; /* 50% of the parent container */
+    height: auto; /* Maintain aspect ratio */
 }
