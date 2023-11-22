@@ -15,6 +15,8 @@
             <li><a href="artisti.php">Artiști</a></li>
             <li><a href="bilete.php">Bilete</a></li>
             <li><a href="sponsori.php">Sponsori</a>
+            <li><a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
+            <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a><li>
         </li>    <li><a>Login/Sign-up</a></li>
         </ul>
     </div>

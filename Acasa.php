@@ -23,7 +23,9 @@ exit;
             <li><a href="artisti.php">Artiști</a></li>
             <li><a href="bilete.php">Bilete</a></li>
             <li><a href="sponsori.php">Sponsori</a>
-            <li><a href="login.php">Login/Sign-up</a></li>
+            <li><a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
+            <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a><li>
+            
         </ul>
     </div>
     <div>
@@ -37,12 +39,6 @@ exit;
             <li>"Când un comedian spune că va fi un spectacol 'fără perdea', de obicei mă aștept să văd perdelele ridicându-se, dar în schimb, primesc povești picante și glume fără reținere. Mai bine de atât!"</li>
         </ul>
         <p>Fie că ești fan înrăit al comediei sau doar cauți o seară de neuitat, HaHaTickets este destinația ta pentru cele mai tari evenimente de stand-up din oraș. Haide să transformăm râsul în monedă de schimb și să îți oferim cele mai amuzante seri din viața ta!</p>
-    </div>
-    <h3>Echipa Noastră</h3>
-    <div></div>
-    <div id="Echipa">
-        
-    <img id="echipaimagine" src="Echipa.png">
-    </div>
+    
 </body>
 </html>

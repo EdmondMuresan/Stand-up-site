@@ -47,8 +47,10 @@ if (!empty($_POST['id'])) {
         <li><a>Evenimente</a></li>
         <li><a>Artiști</a></li>
         <li><a>Bilete</a></li>
-        <li><a href="sponsori.php">Sponsori</a></li>
-<li><a href="login.php">Login/Sign-up</a></li>
+        <li><a href="sponsori.php">Sponsori</a>
+            <li><a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
+            <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a><li></li>
+
     </ul>
 </div>
 
