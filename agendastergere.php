@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <title>HaHaTickets</title>
     <link rel="stylesheet" href="index.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
 <body>
     <div id="Menubar">
         <ul id="horizontalList">
-        <li><a href="Acasa.php">Acasă</a></li>
+            <li><a href="Acasa.php">Acasă</a></li>
             <li><a href="agenda.php">Agendă</a></li>
             <li><a href="evenimente.php">Evenimente</a></li>
-            <li><a href="artisti.php">Artisti</a></li>
+            <li><a href="artisti.php">Artiști</a></li>
             <li><a href="bilete.php">Bilete</a></li>
-            <li><a href="sponsori.php">Sponsori</a></li>
-            <li><a href="login.php">Login/Sign-up</a></li>
+            <li><a href="sponsori.php">Sponsori</a>
+        </li>    <li><a>Login/Sign-up</a></li>
         </ul>
     </div>
 <?php
@@ -26,7 +27,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id']))
 // preluam variabila 'id' din URL
 $id = $_GET['id'];
 // stergem inregistrarea cu ib=$id
-if ($stmt = $mysqli->prepare("DELETE FROM utilizator WHERE id = ? LIMIT 1"))
+if ($stmt = $mysqli->prepare("DELETE FROM agenda WHERE id = ? LIMIT 1"))
 {
 $stmt->bind_param("i",$id);
 $stmt->execute();
@@ -39,5 +40,7 @@ echo "ERROR: Nu se poate executa delete.";
 $mysqli->close();
 echo "<div>Inregistrarea a fost stearsa!!!!</div>";
 }
-echo "<p><a href=\"login.php\">Index</a></p>";
+echo "<p><a href=\"agenda.php\">Index</a></p>";
 ?>
+</body>
+</html>

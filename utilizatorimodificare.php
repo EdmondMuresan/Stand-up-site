@@ -43,13 +43,13 @@ if (!empty($_POST['id'])) {
 <body>
 <div id="Menubar">
     <ul id="horizontalList">
-        <li><a href="Acasa.html">Acasă</a></li>
+        <li><a href="Acasa.php">Acasă</a></li>
         <li><a>Agendă</a></li>
         <li><a>Evenimente</a></li>
         <li><a>Artiști</a></li>
         <li><a>Bilete</a></li>
         <li><a href="sponsori.php">Sponsori</a></li>
-        <li><a href="utilizatori.php">Login/Sign-up</a></li>
+        <li><a href="login.php">Login/Sign-up</a></li>
     </ul>
 </div>
 <h1><?php if ($_GET['id'] != '') { echo "Modificare Inregistrare"; }?></h1>
@@ -96,13 +96,13 @@ if (!empty($_POST['id'])) {
 <body>
 <div id="Menubar">
     <ul id="horizontalList">
-        <li><a href="Acasa.html">Acasă</a></li>
+        <li><a href="Acasa.php">Acasă</a></li>
         <li><a>Agendă</a></li>
         <li><a>Evenimente</a></li>
         <li><a>Artiști</a></li>
         <li><a>Bilete</a></li>
         <li><a href="sponsori.php">Sponsori</a></li>
-        <li><a href="utilizatori.php">Login/Sign-up</a></li>
+        <li><a href="login.php">Login/Sign-up</a></li>
     </ul>
 </div>
 <h1><?php if ($_GET['id'] != '') { echo "Modificare Inregistrare"; }?></h1>
@@ -125,7 +125,7 @@ if (!empty($_POST['id'])) {
                         <strong>Email: </strong> <input type="text" name="email" value="<?php echo $row->email; ?>"/><br/>
                         <br/>
                         <input type="submit" name="submit" value="Submit" />
-                        <a href="utilizatori.php">Index</a>
+                        <a href="login.php">Index</a>
                 <?php }
                 }
             }

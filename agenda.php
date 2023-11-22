@@ -10,41 +10,36 @@
     <div id="Menubar">
         <ul id="horizontalList">
             <li><a href="Acasa.php">Acasă</a></li>
-            <li><a>Agendă</a></li>
-            <li><a>Evenimente</a></li>
-            <li><a>Artiști</a></li>
-            <li><a>Bilete</a></li>
-            <li><a>Sponsori</a></li>
-    <li><a href="login.php">Login/Sign-up</a></li>
+            <li><a href="agenda.php">Agendă</a></li>
+            <li><a href="evenimente.php">Evenimente</a></li>
+            <li><a href="artisti.php">Artisti</a></li>
+            <li><a href="bilete.php">Bilete</a></li>
+            <li><a href="sponsori.php">Sponsori</a></li>
+            <li><a href="login.php">Login/Sign-up</a></li>
         </ul>
     </div>
-    <h1>Inregistrarile din tabela Sponsori</h1>
-    <p><b>Toate inregistrarile din Sponsori</b</p>
+    <h1>Inregistrarile din tabela Agenda</h1>
+    <p><b>Toate inregistrarile din Agenda</b</p>
     <?php
     // connectare bazadedate
     include("Conectare.php");
     // se preiau inregistrarile din baza de date
-    if ($result = $mysqli->query("SELECT * FROM parteneri ORDER BY id "))
+    if ($result = $mysqli->query("SELECT * FROM agenda ORDER BY id "))
     { // Afisare inregistrari pe ecran
     if ($result->num_rows > 0)
     {
     // afisarea inregistrarilor intr-o table
     echo "<table border='1' cellpadding='10'>";
     // antetul tabelului
-    echo "<tr><th>ID</th><th>Nume parteneri</th><th>Suma
-    </th><th>CIF</th><th>E-mail contact</th><th>ID Eveniment</th><th></th><th></th></tr>";
+    echo "<tr><th>ID</th><th>Data</th><th></th><th></th></tr>";
     while ($row = $result->fetch_object())
     {
     // definirea unei linii pt fiecare inregistrare
     echo "<tr>";
     echo "<td>" . $row->id . "</td>";
-    echo "<td>" . $row->nume . "</td>";
-    echo "<td>" . $row->suma . "</td>";
-    echo "<td>" . $row->CIF . "</td>";
-    echo "<td>" . $row->email . "</td>";
-    echo "<td>" . $row->idevenimente . "</td>";
-    echo "<td><a href='Modificare.php?id=" . $row->id . "'>Modificare</a></td>";
-    echo "<td><a href='Stergere.php?id=" .$row->id . "'>Stergere</a></td>";
+    echo "<td>" . $row->data . "</td>";
+    echo "<td><a href='agendamodificare.php?id=" . $row->id . "'>Modificare</a></td>";
+    echo "<td><a href='agendastergere.php?id=" .$row->id . "'>Stergere</a></td>";
     echo "</tr>";
     }
     echo "</table>";
@@ -61,6 +56,6 @@
     // se inchide
     $mysqli->close();
     ?>
-<a href="Inserare.php">Adaugarea unei noi inregistra
+<a href="agendainserare.php">Adaugarea unei noi inregistrari
 </body>
 </html>

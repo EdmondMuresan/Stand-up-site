@@ -4,21 +4,18 @@ $error='';
 if (isset($_POST['submit']))
 {
 // preluam datele de pe formular
-$nume = htmlentities($_POST['nume'], ENT_QUOTES);
-$suma = htmlentities($_POST['suma'], ENT_QUOTES);
-$CIF = htmlentities($_POST['CIF'], ENT_QUOTES);
-$email = htmlentities($_POST['email'], ENT_QUOTES);
-$idevenimente = htmlentities($_POST['idevenimente'], ENT_QUOTES);
+$data = htmlentities($_POST['data'], ENT_QUOTES);
+
 // verificam daca sunt completate
-if ($nume == '' || $suma == ''||$CIF==''||$email==''||$idevenimente=='')
+if ($data == '')
 {
 // daca sunt goale se afiseaza un mesaj
 $error = 'ERROR: Campuri goale!';
 } else {
 // insert
-if ($stmt = $mysqli->prepare("INSERT into parteneri (nume, suma, CIF, email, idevenimente) VALUES (?, ?, ?, ?, ?)"))
+if ($stmt = $mysqli->prepare("INSERT into agenda (data) VALUES (?)"))
 {
-$stmt->bind_param("sissi", $nume, $suma,$CIF,$email,$idevenimente);
+$stmt->bind_param("s", $data);
 $stmt->execute();
 $stmt->close();
 }
@@ -43,13 +40,12 @@ $mysqli->close();
 <body>
     <div id="Menubar">
         <ul id="horizontalList">
-        <li><a href="Acasa.php">Acasă</a></li>
+            <li><a href="Acasa.php">Acasă</a></li>
             <li><a href="agenda.php">Agendă</a></li>
             <li><a href="evenimente.php">Evenimente</a></li>
-            <li><a href="artisti.php">Artisti</a></li>
+            <li><a href="artisti.php">Artiști</a></li>
             <li><a href="bilete.php">Bilete</a></li>
             <li><a href="sponsori.php">Sponsori</a></li>
-            <li><a href="login.php">Login/Sign-up</a></li>
     <li><a href="login.php">Login/Sign-up</a></li>
         </ul>
     </div>
@@ -58,14 +54,10 @@ $mysqli->close();
 echo "<div style='padding:4px; border:1px solid red; color:red'>" . $error."</div>";} ?>
 <form action="" method="post">
 <div>
-<strong>Nume: </strong> <input type="text" name="nume" value=""/><br/>
-<strong>Suma: </strong> <input type="text" name="suma" value=""/><br/>
-<strong>CIF: </strong> <input type="text" name="CIF" value=""/><br/>
-<strong>E-mail: </strong> <input type="text" name="email" value=""/><br/>
-<strong>IDevenimente: </strong> <input type="text" name="idevenimente" value=""/><br/>
+<strong>Data: </strong> <input type="date" name="data" value=""/><br/>
 <br/>
 <input type="submit" name="submit" value="Submit" />
-<a href="sponsori.php">Index</a>
+<a href="agenda.php">Index</a>
 </div>
 </form>
 </body>

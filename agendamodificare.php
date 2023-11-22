@@ -7,17 +7,13 @@ if (!empty($_POST['id'])) {
     if (isset($_POST['submit'])) {
         if (is_numeric($_POST['id'])) {
             $id = $_POST['id'];
-            $nume = htmlentities($_POST['nume'], ENT_QUOTES);
-            $suma = htmlentities($_POST['suma'], ENT_QUOTES);
-            $CIF = htmlentities($_POST['CIF'], ENT_QUOTES);
-            $email = htmlentities($_POST['email'], ENT_QUOTES);
-            $idevenimente = htmlentities($_POST['idevenimente'], ENT_QUOTES);
+            $data = $_POST['data'];
 
-            if ($nume == '' || $suma == '' || $CIF == '' || $email == '' || $idevenimente == '') {
+            if ($data == '') {
                 echo "<div> ERROR: Completati campurile obligatorii!</div>";
             } else {
-                if ($stmt = $mysqli->prepare("UPDATE parteneri SET nume=?, suma=?, email=?, CIF=?, idevenimente=? WHERE id='".$id."'")) {
-                    $stmt->bind_param("sissi", $nume, $suma, $email, $CIF, $idevenimente);
+                if ($stmt = $mysqli->prepare("UPDATE agenda SET data=? WHERE id='".$id."'")) {
+                    $stmt->bind_param("s", $data);
                     $stmt->execute();
                     $stmt->close();
                 } else {
@@ -43,10 +39,10 @@ if (!empty($_POST['id'])) {
 <div id="Menubar">
     <ul id="horizontalList">
         <li><a href="Acasa.php">Acasă</a></li>
-        <li><a>Agendă</a></li>
-        <li><a>Evenimente</a></li>
-        <li><a>Artiști</a></li>
-        <li><a>Bilete</a></li>
+        <li><a href="agenda.php">Agendă</a></li>
+        <li><a href="evenimente.php">Evenimente</a></li>
+        <li><a href="artisti.php">Artiști</a></li>
+        <li><a href="bilete.php">Bilete</a></li>
         <li><a href="sponsori.php">Sponsori</a></li>
 <li><a href="login.php">Login/Sign-up</a></li>
     </ul>
@@ -63,17 +59,13 @@ if (!empty($_POST['id'])) {
         <?php if ($_GET['id'] != '') { ?>
             <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>" />
             <p>ID: <?php echo $_GET['id'];
-                if ($result = $mysqli->query("SELECT * FROM parteneri where id='".$_GET['id']."'")) {
+                if ($result = $mysqli->query("SELECT * FROM agenda where id='".$_GET['id']."'")) {
                     if ($result->num_rows > 0) {
                         $row = $result->fetch_object(); ?></p>
-                        <strong>Nume: </strong> <input type="text" name="nume" value="<?php echo $row->nume; ?>"/><br/>
-                        <strong>Suma: </strong> <input type="text" name="suma" value="<?php echo $row->suma; ?>"/><br/>
-                        <strong>CIF: </strong> <input type="text" name="CIF" value="<?php echo $row->CIF; ?>"/><br/>
-                        <strong>E-mail: </strong> <input type="text" name="email" value="<?php echo $row->email; ?>"/><br/>
-                        <strong>IDevenimente: </strong> <input type="text" name="idevenimente" value="<?php echo $row->idevenimente; ?>"/><br/>
+                        <strong>Data: </strong> <input type="date" name="data" value="<?php echo $row->data; ?>"/><br/>
                         <br/>
                         <input type="submit" name="submit" value="Submit" />
-                        <a href="sponsori.php">Index</a>
+                        <a href="agenda.php">Index</a>
                 <?php }
                 }
             }

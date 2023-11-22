@@ -9,12 +9,13 @@
 <body>
     <div id="Menubar">
         <ul id="horizontalList">
-            <li><a href="Acasa.html">Acasă</a></li>
-            <li><a>Agendă</a></li>
-            <li><a>Evenimente</a></li>
-            <li><a>Artiști</a></li>
-            <li><a>Bilete</a></li>
-            <li><a href="sponsori.php">Sponsori</a>
+        <li><a href="Acasa.php">Acasă</a></li>
+            <li><a href="agenda.php">Agendă</a></li>
+            <li><a href="evenimente.php">Evenimente</a></li>
+            <li><a href="artisti.php">Artisti</a></li>
+            <li><a href="bilete.php">Bilete</a></li>
+            <li><a href="sponsori.php">Sponsori</a></li>
+            <li><a href="login.php">Login/Sign-up</a></li>
         </li>    <li><a>Login/Sign-up</a></li>
         </ul>
     </div>

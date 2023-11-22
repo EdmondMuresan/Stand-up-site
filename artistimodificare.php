@@ -8,16 +8,18 @@ if (!empty($_POST['id'])) {
         if (is_numeric($_POST['id'])) {
             $id = $_POST['id'];
             $nume = htmlentities($_POST['nume'], ENT_QUOTES);
-            $suma = htmlentities($_POST['suma'], ENT_QUOTES);
-            $CIF = htmlentities($_POST['CIF'], ENT_QUOTES);
+            $prenume = htmlentities($_POST['prenume'], ENT_QUOTES);
+            $telefon = htmlentities($_POST['telefon'], ENT_QUOTES);
             $email = htmlentities($_POST['email'], ENT_QUOTES);
+            $salariul_orar = htmlentities($_POST['salariul_orar'], ENT_QUOTES);
             $idevenimente = htmlentities($_POST['idevenimente'], ENT_QUOTES);
+            
 
-            if ($nume == '' || $suma == '' || $CIF == '' || $email == '' || $idevenimente == '') {
+            if ($nume == '' || $prenume == ''||$telefon==''||$email==''||$salariul_orar==''||$idevenimente=='') {
                 echo "<div> ERROR: Completati campurile obligatorii!</div>";
             } else {
-                if ($stmt = $mysqli->prepare("UPDATE parteneri SET nume=?, suma=?, email=?, CIF=?, idevenimente=? WHERE id='".$id."'")) {
-                    $stmt->bind_param("sissi", $nume, $suma, $email, $CIF, $idevenimente);
+                if ($stmt = $mysqli->prepare("UPDATE artisti SET nume=?, prenume=?, telefon=?, email=?, salariul_orar=?, idevenimente=? WHERE id='".$id."'")) {
+                    $stmt->bind_param("ssssii", $nume, $prenume, $telefon, $email, $salariul_orar, $idevenimente);
                     $stmt->execute();
                     $stmt->close();
                 } else {
@@ -42,13 +44,13 @@ if (!empty($_POST['id'])) {
 <body>
 <div id="Menubar">
     <ul id="horizontalList">
-        <li><a href="Acasa.php">Acasă</a></li>
-        <li><a>Agendă</a></li>
-        <li><a>Evenimente</a></li>
-        <li><a>Artiști</a></li>
-        <li><a>Bilete</a></li>
-        <li><a href="sponsori.php">Sponsori</a></li>
-<li><a href="login.php">Login/Sign-up</a></li>
+    <li><a href="Acasa.php">Acasă</a></li>
+            <li><a href="agenda.php">Agendă</a></li>
+            <li><a href="evenimente.php">Evenimente</a></li>
+            <li><a href="artisti.php">Artisti</a></li>
+            <li><a href="bilete.php">Bilete</a></li>
+            <li><a href="sponsori.php">Sponsori</a></li>
+            <li><a href="login.php">Login/Sign-up</a></li>
     </ul>
 </div>
 
@@ -63,17 +65,19 @@ if (!empty($_POST['id'])) {
         <?php if ($_GET['id'] != '') { ?>
             <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>" />
             <p>ID: <?php echo $_GET['id'];
-                if ($result = $mysqli->query("SELECT * FROM parteneri where id='".$_GET['id']."'")) {
+                if ($result = $mysqli->query("SELECT * FROM artisti where id='".$_GET['id']."'")) {
                     if ($result->num_rows > 0) {
                         $row = $result->fetch_object(); ?></p>
                         <strong>Nume: </strong> <input type="text" name="nume" value="<?php echo $row->nume; ?>"/><br/>
-                        <strong>Suma: </strong> <input type="text" name="suma" value="<?php echo $row->suma; ?>"/><br/>
-                        <strong>CIF: </strong> <input type="text" name="CIF" value="<?php echo $row->CIF; ?>"/><br/>
-                        <strong>E-mail: </strong> <input type="text" name="email" value="<?php echo $row->email; ?>"/><br/>
-                        <strong>IDevenimente: </strong> <input type="text" name="idevenimente" value="<?php echo $row->idevenimente; ?>"/><br/>
+                        <strong>Prenume: </strong> <input type="text" name="prenume" value="<?php echo $row->prenume; ?>"/><br/>
+                        <strong>Telefon: </strong> <input type="text" name="telefon" value="<?php echo $row->telefon; ?>"/><br/>
+                        <strong>Email: </strong> <input type="text" name="email" value="<?php echo $row->email; ?>"/><br/>
+                        <strong>Salariul Orar: </strong> <input type="number" name="salariul_orar" value="<?php echo $row->salariul_orar; ?>"/><br/>
+                        <strong>Id Evenimente: </strong> <input type="text" name="idevenimente" value="<?php echo $row->idevenimente; ?>"/><br/>
+
                         <br/>
                         <input type="submit" name="submit" value="Submit" />
-                        <a href="sponsori.php">Index</a>
+                        <a href="artisti.php">Index</a>
                 <?php }
                 }
             }

@@ -9,13 +9,13 @@
 <body>
     <div id="Menubar">
         <ul id="horizontalList">
-            <li><a href="Acasa.html">Acasă</a></li>
-            <li><a>Agendă</a></li>
-            <li><a>Evenimente</a></li>
-            <li><a>Artiști</a></li>
-            <li><a>Bilete</a></li>
+        <li><a href="Acasa.php">Acasă</a></li>
+            <li><a href="agenda.php">Agendă</a></li>
+            <li><a href="evenimente.php">Evenimente</a></li>
+            <li><a href="artisti.php">Artisti</a></li>
+            <li><a href="bilete.php">Bilete</a></li>
             <li><a href="sponsori.php">Sponsori</a></li>
-            <li><a href="utilizatori.php">Login/Sign-up</a></li>
+            <li><a href="login.php">Login/Sign-up</a></li>
         </ul>
     </div>
     <h1>Inregistrarile din tabela datepers</h1>
@@ -43,8 +43,8 @@ echo "<td>" . $row->password . "</td>";
 echo "<td>" . $row->username . "</td>";
 echo "<td>" . $row->telefon . "</td>";
 echo "<td>" . $row->email . "</td>";
-echo "<td><a href='utilizatorimodificare.php?id=" . $row->id . "'>Modificare</a></td>";
-echo "<td><a href='utilizatoristergere.php?id=" .$row->id . "'>Stergere</a></td>";
+echo "<td><a href='loginmodificare.php?id=" . $row->id . "'>Modificare</a></td>";
+echo "<td><a href='loginstergere.php?id=" .$row->id . "'>Stergere</a></td>";
 echo "</tr>";
 }
 echo "</table>";
@@ -61,6 +61,6 @@ else
 // se inchide
 $mysqli->close();
 ?>
-<a href="utilizatoriinserare.php">Adaugarea unei noi inregistrari</a>
+<a href="logininserare.php">Adaugarea unei noi inregistrari</a>
 </body>
 </html>
